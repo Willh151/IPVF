@@ -22,6 +22,7 @@ int getValidInteger(const string& prompt, int min, int max) {
             cout << "Invalid input. Please enter a value between " << min << " and " << max << ".\n";
         }
         else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             return value;
         }
     }
@@ -30,7 +31,6 @@ int getValidInteger(const string& prompt, int min, int max) {
 // Function to get a valid string
 string getValidString(const string& prompt) {
     string value;
-    cin.ignore(); // Clear input buffer
     while (true) {
         cout << prompt;
         getline(cin, value);
@@ -75,3 +75,4 @@ int main() {
 
     return 0;
 }
+
